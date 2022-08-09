@@ -1,0 +1,65 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.colorInherit{
+    color:inherit;
+}
+
+.btn-circle {
+    border-radius: 100%;
+}
+
+.main-color {
+    color: #E81932;
+}
+
+.main-background {
+    background-color: #232B38;
+    color:#F0F0F0;
+}
+
+body {
+        
+    margin-bottom: 60px;
+}
+
+.baggage-container {
+    padding-top: 200px;
+}
+
+.n-container{
+    padding:100px;
+}
+
+.input-ticket-code {
+    font-size: 25px;
+    width: 500px;
+}
+
+.search {
+    width: 70px;
+    ;
+    font-size: 29px;
+    flex-grow: 2;
+}
+
+.form {
+    max-width: 650px;
+    margin: 10px auto;
+}
+
+.baggage-item {
+    position: relative;
+}

@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Tracking List";
+}
+
+@model TrackingListVM
+
+<div class="container">
+    <div class="n-container d-flex flex-row justify-content-center align-items-center">
+        <div class="w-100">
+            <h2 class="text-center mb-4 main-color">The way your luggage travels.</h2>
+            <table class="w-100 table table-striped text-center table-inverse table-bordered table-hover table-responsive">
+                <thead class="text-dark">
+                    <tr>
+                        <th>Operation</th>
+                        <th>Information</th>
+                        <th>Success</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <button class="btn @Model.Baggage.Loading.ClassName  btn-circle">
+                                <i class="fa-solid fa-truck-ramp-box"></i>
+                            </button>
+                        </td>
+                        <td>Baggage is loaded onto the plane.</td>
+                        <td>
+                            <button class="btn @Model.Baggage.Loading.ClassName  btn-circle " data-bs-toggle="tooltip" data-bs-placement="right" title="@Model.Baggage.Loading.Name">
+                                <i class="@Model.Baggage.Loading.Icon"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button class="btn @Model.Baggage.Landed.ClassName  btn-circle">
+                                <i class="fa-solid fa-plane-arrival"></i>
+                            </button>
+                        </td>
+                        <td>The plane arrived at the airport.Baggage is unloaded.</td>
+                        <td>
+                            <button class="btn @Model.Baggage.Landed.ClassName   btn-circle "  data-bs-toggle="tooltip" data-bs-placement="right" title="@Model.Baggage.Landed.Name">
+                                <i class="@Model.Baggage.Landed.Icon "></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button class="btn @Model.Baggage.IsOut.ClassName  btn-circle">
+                                <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                            </button>
+                        </td>
+                        <td>
+                          
+                            @if(Model.Baggage.IsOutId == 3 && @Model?.Platform != null)
+                            {
+                                <span>
+                                      Your luggage is already at the exit.
+                                    <strong>
+                                        Platform : @Model?.Platform?.Name.
+                                    </strong>
+                                    <br>
+                                    <strong>
+                                         Messenge:
+                                    </strong>
+                                    @Model?.Platform?.BaggageOutPoint
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                     Your luggage exit.
+                                </span>
+                            }
+
+                        </td>
+                        <td>
+                            <button class="btn @Model.Baggage.IsOut.ClassName  btn-circle ">
+                                <i class="@Model.Baggage.IsOut.Icon" data-bs-toggle="tooltip" data-bs-placement="right" title="@Model.Baggage.IsOut.Name"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="container">
+
+    @if (TempData["Messenge"] != null || !string.IsNullOrEmpty(TempData["Messenge"]?.ToString()))
+    {
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           <span> @TempData["Messenge"]?.ToString()</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+    }
+
+    <div class="baggage-container">
+        <div class="baggage-item">
+            <h1 class="text-center text-capitalize main-color">  <i class="fa-solid fa-suitcase-rolling"></i> Baggage Tracking</h1>
+            <form method="get" action="/Home/TrackingList" class="my-3 form d-flex">
+                <input type="text" style=" flex-grow: 6;" name="ticketCode" required class="form-control input-ticket-code p-3"
+                       placeholder="Write your ticket code ...">
+
+                <button class="btn btn-secondary search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
